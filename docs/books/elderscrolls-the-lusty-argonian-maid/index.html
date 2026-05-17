@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apocrypha | Skyrim - The Lusty Argonian Maid</title>
+    <meta name="description" content="An illustrated version of the elderscrolls Skyrim book The Lusty Argonian Maid Folio Edition by Crassius Curio">
+    <link rel="stylesheet" href="../../main.css">
+    <link rel="preload" as="image" href="../../assets/backgrounds/read_page_image.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+</head>
+<style>
+    .lifts-her-tail{
+        color: darkmagenta;
+        font-weight: bold;
+    }
+
+    .crantius{
+        color:darkblue;
+        font-weight: bold;
+    }
+
+    .original-text{
+        color: maroon;
+    }
+</style>
+<body>
+    <div class="mascot">
+        <div class="mascot-bubble">
+            <span class="mascot-text"></span>
+            <span class="mascot-dismiss">×</span>
+        </div>
+        <img class="mascot-image" src="../../mascot.apng" alt="Mascot">
+    </div>
+    <footer class="site-footer">
+        <a  id="footer-patreon"
+            class="mascot-object footer-icon"
+            href="https://www.patreon.com/cw/SableSentinel" target="_blank"
+            aria-label="Patreon"
+            data-expression="default"
+            data-text="Become a True Seeker and gain access to my secret library...">
+        </a>
+        <a  id="footer-youtube"
+            class="mascot-object footer-icon"
+            href="https://www.youtube.com/@SableSentinel" target="_blank"
+            aria-label="YouTube"
+            data-expression="default"
+            data-text="Dive deeper and discover hidden gems of knowledge.">
+        </a>
+        <a  id="footer-reddit"
+            class="mascot-object footer-icon"
+            href="https://www.reddit.com/user/Sable_Sentinel/" target="_blank"
+            aria-label="Reddit"
+            data-expression="default"
+            data-text="Be among the first to discover what new knowledge has been... hoarded.">
+        </a>
+        <a  id="footer-artgram"
+            class="mascot-object footer-icon"
+            href="https://www.artgram.co/sable_sentinel" target="_blank"
+            aria-label="Artgram"
+            data-expression="default"
+            data-text="Enter the great gallery and become immersed in my halls of art.">
+        </a>
+        <a  id="footer-instagram"
+            class="mascot-object footer-icon"
+            href="https://www.instagram.com/sable_sentinel/" target="_blank"
+            aria-label="Instagram"
+            data-expression="default"
+            data-text="Roam around and become lost in my extended art gallery.">
+        </a>
+        <a  id="footer-email"
+            class="mascot-object footer-icon"
+            href="mailto:sablesentinel.social@gmail.com" target="_blank"
+            aria-label="Email"
+            data-expression="default"
+            data-text="Want to contact me, Seeker? Here is your opportunity.">
+        </a>
+    </footer>
+        <div class="book-container">
+            <div class="bookmark-array"></div>
+            <div id="book-text-page">
+                <div id="book-text-page-header">
+                    <button class="book-text-navigation" id="prev-page">&LeftArrow;</button>
+                    <select class="content-chapter mascot-object" data-expression="default" data-text="Navigate to any part of the book.">
+                        <option value="" disabled selected>Navigate</option>
+                        <option value="page0">Foreword</option>
+                        <option value="page2">Act IV</option> <!--Chapter 1 -->
+                        <option value="page12">Act VII</option>
+                    </select>
+                    <button class="book-text-navigation" id="next-page">&RightArrow;</button>
+                </div>
+            <div id="book-text-page-area">
+                <p>
+                    <span class="page0 active-page">
+                        <br><strong class="page-number">Foreword</strong><br>
+                        <span class="original-text" style="font-style: italic;">
+                        To the Arano Family,<br>
+                        When I showed up on your doorstep in Morrowind that day, I expected to be thrown back into the street and cast aside like some sort of vermin. Instead, you offered me into the warmth and saftey of your home. For that, I will be eternally grateful. Please, accept this rare Folio Edition of my work as a sign of appreciation for your kindness.<br><br>
+                        Crassius Curio
+                        </span>
+                    </span><br>
+                    <span class="page1">
+                        <br><strong class="page-number">Editor's Note</strong><br>
+                        Any text <span class="original-text">in red</span> is from the original 'Folio Edition' text.
+                        Everything else is has been added to expand the story.
+                    </span>
+                    <span class="page2">
+                        <br><strong class="page-number">Act IV, Scene III, continued</strong><br>
+                        <span class="lifts-her-tail">Lifts-Her-Tail</span><br>
+                        <span class="original-text"><span class="page-speech">Certainly not, kind sir! I am here but to clean your chambers.</span></span><br>
+                        Crantius' gaze sharpens as <span class="highlight">he looks at Lifts-Her-Tail from horn-tip to tail-tip.</span> He asks, in a provokative tone,
+                    </span>
+                    <span class="page3">
+                        <strong class="page-number"></strong><br>
+                        <span class="crantius">Crantius Colto</span><br>
+                        <span class="original-text"><span class="page-speech">Is that all you have come here for, little one? My chambers?</span></span><br>
+                        Lifts-Her-Tail hesitates for a moment unsure how to respond before <span class="highlight">turning her back towards Crantuis</span> to wipe a desk; she remarks,
+                    </span>
+                    <span class="page4">
+                        <strong class="page-number"></strong><br>
+                        <span class="lifts-her-tail">Lifts-Her-Tail</span><br>
+                        <span class="original-text"><span class="page-speech">I have no idea what it is you imply, master. I am but a poor Argonian maid.</span></span><br>
+                        <span class="highlight">Crantius' eyes are fixed on Lifts-Her-Tail</span> as she wipes the desk, unbreaking and unblinking. With a smirk , he remarks,
+                    </span>
+                    <span class="page5">
+                        <strong class="page-number"></strong><br>
+                        <span class="crantius">Crantius Colto</span><br>
+                        <span class="original-text"><span class="page-speech">So you are, my dumpling. And a good one at that. Such strong legs and shapely tail.</span></span><br>
+                        Lifts-Her-Tail tenses up and stops wiping the desk, now more self-conscious of <span class="highlight">the gentle breeze caressing her tail and legs.</span> She responds,
+                    </span>
+                    <span class="page6">
+                        <strong class="page-number"></strong><br>
+                        <span class="lifts-her-tail">Lifts-Her-Tail</span><br>
+                        <span class="original-text"><span class="page-speech">You embarrass me, sir!</span></span><br>
+                        <span class="highlight">Crantius now with a full grin,</span> reassures Lifts-Her-Tail that she was in no danger. He remarks,
+                    </span>
+                    <span class="page7">
+                        <strong class="page-number"></strong><br>
+                        <span class="crantius">Crantius Colto</span><br>
+                        <span class="original-text"><span class="page-speech">Fear not. You are safe here with me.</span></span><br>
+                        Lifts-Her-Tail unsure of what to do next, attempts to bring the topic back to her duty of <span class="highlight">cleaning the master's chambers,</span>
+                    </span>
+                    <span class="page8">
+                        <strong class="page-number"></strong><br>
+                        <span class="lifts-her-tail">Lifts-Her-Tail</span><br>
+                        <span class="original-text"><span class="page-speech">I must finish my cleaning, sir. The mistress will have my head if I do not!</span></span><br>
+                        Crantius, <span class="highlight">intent on keeping his little Argonian dumpling busy,</span> insists,
+                    </span>
+                    <span class="page9">
+                        <strong class="page-number"></strong><br>
+                        <span class="crantius">Crantius Colto</span><br>
+                        <span class="original-text"><span class="page-speech">Cleaning, eh? I have something for you. Here, polish my spear.</span></span><br>
+                        Crantius <span class="highlight">unsheaths his massive spear</span> and its sheer girth and length is enough to intimidate even the most experienced spear-maidens. Lifts-Her-Tail exclaims,
+                    </span>
+                    <span class="page10">
+                        <strong class="page-number"></strong><br>
+                        <span class="lifts-her-tail">Lifts-Her-Tail</span><br>
+                        <span class="original-text"><span class="page-speech">But it is huge! It could take me all night!</span></span><br>
+                        Crantius <span class="highlight">waves his massive spear in the moonlight</span> as Lifts-Her-Tail looks on in awe. He remarks with certainty,
+                    </span>
+                    <span class="page11">
+                        <strong class="page-number"></strong><br>
+                        <span class="crantius">Crantius Colto</span><br>
+                        <span class="original-text"><span class="page-speech">Plenty of time, my sweet.<br>
+                        Plenty of time.</span></span>
+                    </span>
+                    <span class="page12">
+                        <br><strong class="page-number">Act VII, Scene II, continued</strong><br>
+                        <span class="lifts-her-tail">Lifts-Her-Tail</span><br>
+                        <span class="original-text"><span class="page-speech">My goodness, that's quite a loaf! But how ever shall it fit my oven?</span></span><br>
+                        Crantius <span class="highlight">smiles and remarks,</span> even as Lifts-Her-Tail wonders how she could fit such a massive loaf in her oven,
+                    </span>
+                    <span class="page13">
+                        <strong class="page-number"></strong><br>
+                        <span class="crantius">Crantius Colto</span><br>
+                        <span class="original-text"><span class="page-speech">This loaf isn't ready for baking, my sweet. It has yet to rise.</span></span><br>
+                        Crantius <span class="highlight">holds onto the loaf</span> as Lifts-Her-Tail asks, feeling a little impatient to wait for the loaf to rise,
+                    </span>
+                    <span class="page14">
+                        <strong class="page-number"></strong><br>
+                        <span class="lifts-her-tail">Lifts-Her-Tail</span><br>
+                        <span class="original-text"><span class="page-speech">If only we could hurry that along. How would I accomplish such a task?</span></span><br>
+                        Crantius remarks, <span class="highlight">firmly holding the loaf in one hand</span> as Lifts-Her-Tail looks on patiently,
+                    </span>
+                    <span class="page15">
+                        <strong class="page-number"></strong><br>
+                        <span class="crantius">Crantius Colto</span><br>
+                        <span class="original-text"><span class="page-speech">Oh, my foolish little Argonian maid, you must use your hands.</span></span><br>
+                        Lifts-Her-Tail is taken by surprise and <span class="highlight">she quickly looks around</span> to see if anyone else was coming before asking,
+                    </span>
+                    <span class="page16">
+                        <strong class="page-number"></strong><br>
+                        <span class="lifts-her-tail">Lifts-Her-Tail</span><br>
+                        <span class="original-text"><span class="page-speech">You wish me to knead the loaf? Here?</span></span><br>
+                        Crantius responds with confidence as <span class="highlight">the loaf in his hand awaits kneading,</span>
+                    </span>
+                    <span class="page17">
+                        <strong class="page-number"></strong><br>
+                        <span class="crantius">Crantius Colto</span><br>
+                        <span class="original-text"><span class="page-speech">Of course.</span></span><br>
+                        Lifts-Her-Tail is <span class="highlight">hesitant and a little scared</span> of getting caught kneading the master's loaf. She remarks,
+                    </span>
+                    <span class="page18">
+                        <strong class="page-number"></strong><br>
+                        <span class="lifts-her-tail">Lifts-Her-Tail</span><br>
+                        <span class="original-text"><span class="page-speech">But what if the mistress catches me? Your loaf was meant to satisfy her appetite.</span></span><br>
+                        Crantius <span class="highlight">strokes Lifts-Her-Tail's shapely tail</span> and remarks, as the loaf slowly begins to rise,
+                    </span>
+                    <span class="page19">
+                        <strong class="page-number"></strong><br>
+                        <span class="crantius">Crantius Colto</span><br>
+                        <span class="original-text"><span class="page-speech">Don't fret, my delicate flower. I'll satisfy the mistress's cravings later.</span></span><br>
+                        Lifts-Her-Tail calms down, reassured by her master's words. She <span class="highlight">eagerly prepares to knead the loaf</span> and remarks,
+                    </span>
+                    <span class="page20">
+                        <strong class="page-number"></strong><br>
+                        <span class="lifts-her-tail">Lifts-Her-Tail</span><br>
+                        <span class="original-text"><span class="page-speech">Very well, but I'm afraid my oven isn't hot enough. It could take hours!</span></span><br>
+                        Crantius smiles as <span class="highlight">the loaf continues to rise gently</span> in preparation for baking; he remarks,
+                    </span>
+                    <span class="page21">
+                        <strong class="page-number"></strong><br>
+                        <span class="crantius">Crantius Colto</span><br>
+                        <span class="original-text"><span class="page-speech">Plenty of time, my sweet.<br>
+                        Plenty of time.</span></span>
+                    </span>
+                </p>
+            </div>
+        </div>
+            <div id="book-image-page">
+                <img class="page2" src="../generic_cover.webp" alt="Page 2 illustration">
+                <img class="page3" src="../generic_cover.webp" alt="Page 3 illustration">
+                <img class="page4" src="../generic_cover.webp" alt="Page 4 illustration">
+                <img class="page5" src="../generic_cover.webp" alt="Page 5 illustration">
+                <img class="page6" src="../generic_cover.webp" alt="Page 6 illustration">
+                <img class="page7" src="../generic_cover.webp" alt="Page 7 illustration">
+                <img class="page8" src="../generic_cover.webp" alt="Page 8 illustration">
+                <img class="page9" src="../generic_cover.webp" alt="Page 9 illustration">
+                <img class="page10" src="../generic_cover.webp" alt="Page 10 illustration">
+                <img class="page11" src="../generic_cover.webp" alt="Page 11 illustration">
+                <img class="page12" src="../generic_cover.webp" alt="Page 12 illustration">
+                <img class="page13" src="../generic_cover.webp" alt="Page 13 illustration">
+                <img class="page14" src="../generic_cover.webp" alt="Page 14 illustration">
+                <img class="page15" src="../generic_cover.webp" alt="Page 15 illustration">
+                <img class="page16" src="../generic_cover.webp" alt="Page 16 illustration">
+                <img class="page17" src="../generic_cover.webp" alt="Page 17 illustration">
+                <img class="page18" src="../generic_cover.webp" alt="Page 18 illustration">
+                <img class="page19" src="../generic_cover.webp" alt="Page 19 illustration">
+                <img class="page20" src="../generic_cover.webp" alt="Page 20 illustration">
+                <img class="page21" src="../generic_cover.webp" alt="Page 21 illustration">
+                <div class="image-overlay"></div>
+            </div>
+            <div id="volume-array">
+                <div class="volume-slot mascot-object" data-expression="default" data-text="This is volume 1, Seeker."><a href="#">Vol 1</a></div>
+            </div>
+        </div>
+    <footer class="mobile-footer">
+        <a  id="mob-patreon"
+            class="mascot-object footer-icon"
+            href="https://www.patreon.com/cw/SableSentinel" target="_blank"
+            aria-label="Patreon"
+            data-expression="default"
+            data-text="Become a True Seeker and gain access to my secret library...">
+        </a>
+        <a  id="mob-youtube"
+            class="mascot-object footer-icon"
+            href="https://www.youtube.com/@SableSentinel" target="_blank"
+            aria-label="YouTube"
+            data-expression="default"
+            data-text="Dive deeper and discover hidden gems of knowledge.">
+        </a>
+        <a  id="mob-reddit"
+            class="mascot-object footer-icon"
+            href="https://www.reddit.com/user/Sable_Sentinel/" target="_blank"
+            aria-label="Reddit"
+            data-expression="default"
+            data-text="Be among the first to discover what new knowledge has been... hoarded.">
+        </a>
+        <a  id="mob-artgram"
+            class="mascot-object footer-icon"
+            href="https://www.artgram.co/sable_sentinel" target="_blank"
+            aria-label="Artgram"
+            data-expression="default"
+            data-text="Enter the great gallery and become immersed in my halls of art.">
+        </a>
+        <a  id="mob-instagram"
+            class="mascot-object footer-icon"
+            href="https://www.instagram.com/sable_sentinel/" target="_blank"
+            aria-label="Instagram"
+            data-expression="default"
+            data-text="Roam around and become lost in my extended art gallery.">
+        </a>
+        <a  id="mob-email"
+            class="mascot-object footer-icon"
+            href="mailto:sablesentinel.social@gmail.com" target="_blank"
+            aria-label="Email"
+            data-expression="default"
+            data-text="Want to contact me, Seeker? Here is your opportunity.">
+        </a>
+    </footer>
+<script src="../../main.js"></script>
+</body>
+</html>
