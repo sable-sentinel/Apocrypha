@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apocrypha | Template</title>
+    <meta name="description" content="Book Template">
+    <link rel="stylesheet" href="../../main.css">
+    <link rel="preload" as="image" href="../../assets/backgrounds/read_page_image.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+</head>
+<style>
+    .original-text{
+        color: maroon;
+    }
+</style>
+<body>
+    <div class="mascot">
+        <div class="mascot-bubble">
+            <span class="mascot-text"></span>
+            <span class="mascot-dismiss">×</span>
+        </div>
+        <img class="mascot-image" src="../../mascot.apng" alt="Mascot">
+    </div>
+    <footer class="site-footer">
+        <a  id="footer-patreon"
+            class="mascot-object footer-icon"
+            href="https://www.patreon.com/cw/SableSentinel" target="_blank"
+            aria-label="Patreon"
+            data-expression="default"
+            data-text="Become a True Seeker and gain access to my secret library...">
+        </a>
+        <a  id="footer-youtube"
+            class="mascot-object footer-icon"
+            href="https://www.youtube.com/@SableSentinel" target="_blank"
+            aria-label="YouTube"
+            data-expression="default"
+            data-text="Dive deeper and discover hidden gems of knowledge.">
+        </a>
+        <a  id="footer-reddit"
+            class="mascot-object footer-icon"
+            href="https://www.reddit.com/user/Sable_Sentinel/" target="_blank"
+            aria-label="Reddit"
+            data-expression="default"
+            data-text="Be among the first to discover what new knowledge has been... hoarded.">
+        </a>
+        <a  id="footer-artgram"
+            class="mascot-object footer-icon"
+            href="https://www.artgram.co/sable_sentinel" target="_blank"
+            aria-label="Artgram"
+            data-expression="default"
+            data-text="Enter the great gallery and become immersed in my halls of art.">
+        </a>
+        <a  id="footer-instagram"
+            class="mascot-object footer-icon"
+            href="https://www.instagram.com/sable_sentinel/" target="_blank"
+            aria-label="Instagram"
+            data-expression="default"
+            data-text="Roam around and become lost in my extended art gallery.">
+        </a>
+        <a  id="footer-email"
+            class="mascot-object footer-icon"
+            href="mailto:sablesentinel.social@gmail.com" target="_blank"
+            aria-label="Email"
+            data-expression="default"
+            data-text="Want to contact me, Seeker? Here is your opportunity.">
+        </a>
+    </footer>
+        <div class="book-container">
+            <div class="bookmark-array"></div>
+            <div id="book-text-page">
+                <div id="book-text-page-header">
+                    <button class="book-text-navigation" id="prev-page">&LeftArrow;</button>
+                    <select class="content-chapter mascot-object" data-expression="default" data-text="Navigate to any part of the book.">
+                        <option value="" disabled selected>Navigate</option>
+                        <option value="page0">Overview</option>
+                        <option value="page1">Chapter I</option>
+                        <option value="page2">Page 2</option>
+                        <option value="page3">Page 3</option>
+                        <option value="page4">Page 4</option>
+                        <option value="page5">Page 5</option>
+                    </select>
+                    <button class="book-text-navigation" id="next-page">&RightArrow;</button>
+                </div>
+            <div id="book-text-page-area">
+                <p>
+                    <span class="page0 active-page">
+                        <br><strong class="page-number">Template</strong><br>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis quisquam optio cumque, culpa eaque consequatur!
+                    </span><br>
+                    <span class="page1">
+                        <br><strong class="page-number">Chapter I</strong><br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, laborum? <span class="highlight">Lorem ipsum dolor sit amet.</span>. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat, ratione?
+                    </span>
+                    <span class="page2">
+                        <strong class="page-number">2</strong><br>
+                        Lorem, ipsum dolor sit <span class="page-speech">"amet consectetur adipisicing elit."</span> In blanditiis, architecto ab possimus veritatis praesentium?
+                    </span>
+                    <span class="page3">
+                        <strong class="page-number">3</strong><br>
+                        <span class="original-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, animi.</span>
+                    </span>
+                </p>
+            </div>
+        </div>
+            <div id="book-image-page">
+                <img class="page1" src="../generic_cover.webp" alt="Page 1 illustration">
+                <img class="page2" src="../generic_cover.webp" alt="Page 2 illustration">
+                <img class="page3" src="../generic_cover.webp" alt="Page 3 illustration">
+                <img class="page4" src="../generic_cover.webp" alt="Page 4 illustration">
+                <img class="page5" src="../generic_cover.webp" alt="Page 5 illustration">
+                <div class="image-overlay"></div>
+            </div>
+            <div id="volume-array">
+                <div class="volume-slot mascot-object" data-expression="default" data-text="This is a template, Seeker."><a href="#">Vol 1</a></div>
+            </div>
+        </div>
+    <footer class="mobile-footer">
+        <a  id="mob-patreon"
+            class="mascot-object footer-icon"
+            href="https://www.patreon.com/cw/SableSentinel" target="_blank"
+            aria-label="Patreon"
+            data-expression="default"
+            data-text="Become a True Seeker and gain access to my secret library...">
+        </a>
+        <a  id="mob-youtube"
+            class="mascot-object footer-icon"
+            href="https://www.youtube.com/@SableSentinel" target="_blank"
+            aria-label="YouTube"
+            data-expression="default"
+            data-text="Dive deeper and discover hidden gems of knowledge.">
+        </a>
+        <a  id="mob-reddit"
+            class="mascot-object footer-icon"
+            href="https://www.reddit.com/user/Sable_Sentinel/" target="_blank"
+            aria-label="Reddit"
+            data-expression="default"
+            data-text="Be among the first to discover what new knowledge has been... hoarded.">
+        </a>
+        <a  id="mob-artgram"
+            class="mascot-object footer-icon"
+            href="https://www.artgram.co/sable_sentinel" target="_blank"
+            aria-label="Artgram"
+            data-expression="default"
+            data-text="Enter the great gallery and become immersed in my halls of art.">
+        </a>
+        <a  id="mob-instagram"
+            class="mascot-object footer-icon"
+            href="https://www.instagram.com/sable_sentinel/" target="_blank"
+            aria-label="Instagram"
+            data-expression="default"
+            data-text="Roam around and become lost in my extended art gallery.">
+        </a>
+        <a  id="mob-email"
+            class="mascot-object footer-icon"
+            href="mailto:sablesentinel.social@gmail.com" target="_blank"
+            aria-label="Email"
+            data-expression="default"
+            data-text="Want to contact me, Seeker? Here is your opportunity.">
+        </a>
+    </footer>
+<script src="../../main.js"></script>
+</body>
+</html>
