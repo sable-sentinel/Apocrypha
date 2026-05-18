@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apocrypha | Compendia of Stories</title>
+    <meta name="description" content="Explore and discover books in the vast library of Apocrypha, from elderscrolls to Kenshi and even unique books that are only found in this library.">
+    <link rel="stylesheet" href="main.css">
+    <link rel="preload" as="image" href="assets/backgrounds/landing_page_apocrypha.gif">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="mascot">
+        <div class="mascot-bubble">
+            <span class="mascot-text"></span>
+            <span class="mascot-dismiss">×</span>
+        </div>
+        <img class="mascot-image" src="mascot.apng" alt="Mascot">
+    </div>
+<div class="intro-overlay" id="intro-overlay" aria-hidden="false">
+    <div class="intro-container">
+        <header class="intro-header">
+            <h1>Welcome to Apocrypha</h1>
+        </header>
+        <div    class="compendia-door mascot-object"
+                data-expression="default"
+                data-text="Enter the great library of Apocrypha!">
+                <div class="door-panel left"></div>
+                <div class="door-panel right"></div>
+        </div>
+        <button id="skip-intro">Skip &hookrightarrow;</button>
+        <div id="intro-container-spacer"></div>
+    </div>
+    <footer class="site-footer">
+        <a  id="footer-patreon"
+            class="mascot-object footer-icon"
+            href="https://www.patreon.com/cw/SableSentinel" target="_blank"
+            aria-label="Patreon"
+            data-expression="default"
+            data-text="Become a True Seeker and gain access to my secret library...">
+        </a>
+        <a  id="footer-youtube"
+            class="mascot-object footer-icon"
+            href="https://www.youtube.com/@SableSentinel" target="_blank"
+            aria-label="YouTube"
+            data-expression="default"
+            data-text="Dive deeper and discover hidden gems of knowledge.">
+        </a>
+        <a  id="footer-reddit"
+            class="mascot-object footer-icon"
+            href="https://www.reddit.com/user/Sable_Sentinel/" target="_blank"
+            aria-label="Reddit"
+            data-expression="default"
+            data-text="Be among the first to discover what new knowledge has been... hoarded.">
+        </a>
+        <a  id="footer-artgram"
+            class="mascot-object footer-icon"
+            href="https://www.artgram.co/sable_sentinel" target="_blank"
+            aria-label="Artgram"
+            data-expression="default"
+            data-text="Enter the great gallery and become immersed in my halls of art.">
+        </a>
+        <a  id="footer-instagram"
+            class="mascot-object footer-icon"
+            href="https://www.instagram.com/sable_sentinel/" target="_blank"
+            aria-label="Instagram"
+            data-expression="default"
+            data-text="Roam around and become lost in my extended art gallery.">
+        </a>
+        <a  id="footer-email"
+            class="mascot-object footer-icon"
+            href="mailto:sablesentinel.social@gmail.com" target="_blank"
+            aria-label="Email"
+            data-expression="default"
+            data-text="Want to contact me, Seeker? Here is your opportunity.">
+        </a>
+    </footer>
+</div>
+<div class="browsing-container" id="browsing-content">
+    <div class="catalog-main">
+        <div class="shelf-container">
+            <div class="home-navigation">
+                <div class="home-logo"></div>
+                <div class="progress-container">
+                    <label class="progress-label" for="collection-progress">Completion (3/15):</label>
+                    <progress id="collection-progress" max="100" value="0" title="collection progress"></progress>
+                </div>
+                <div class="nav-footer">
+                    <a  id="nav-patreon"
+                        class="mascot-object"
+                        href="https://www.patreon.com/cw/SableSentinel" target="_blank"
+                        data-expression="default"
+                        data-text="Become a True Seeker and gain access to my secret library...">
+                    </a>
+                    <a  id="nav-youtube"
+                        class="mascot-object"
+                        href="https://www.youtube.com/@SableSentinel" target="_blank"
+                        data-expression="default"
+                        data-text="Dive deeper and discover hidden gems of knowledge.">
+                    </a>
+                    <a  id="nav-reddit"
+                        class="mascot-object"
+                        href="https://www.reddit.com/user/Sable_Sentinel/" target="_blank"
+                        data-expression="default"
+                        data-text="Be among the first to discover what new knowledge has been... hoarded.">
+                    </a>
+                    <a  id="nav-artgram"
+                        class="mascot-object"
+                        href="https://www.artgram.co/sable_sentinel" target="_blank"
+                        data-expression="default"
+                        data-text="Enter the great gallery and become immersed in my halls of art.">
+                    </a>
+                    <a  id="nav-instagram"
+                        class="mascot-object"
+                        href="https://www.instagram.com/sable_sentinel/" target="_blank"
+                        data-expression="default"
+                        data-text="Roam around and become lost in my extended art gallery.">
+                    </a>
+                    <a  id="nav-email"
+                        class="mascot-object"
+                        href="mailto:sablesentinel.social@gmail.com" target="_blank"
+                        data-expression="default"
+                        data-text="Want to contact me, Seeker? Here is your opportunity.">
+                    </a>
+                </div>
+                <div id="nav-search">
+                    <label id="home-search">Search:</label>
+                    <input type="text" id="search-input">
+                </div>
+
+                <div id="nav-filter">
+                    <label id="home-filter">Categories:</label>
+                    <select id="category-filter">
+                        <option value="">All</option>
+                        <option value="elderscrolls">Elderscrolls</option>
+                        <option value="kenshi">Kenshi</option>
+                        <option value="stories">Stories</option>
+                    </select>
+                </div>
+            </div>
+            <div class="home-shelf">
+                    <div    class="home-book mascot-object"
+                            data-title="Amelia's Evening"
+                            data-text="; An excellent choice, Seeker! Witness and become immersed in the life of young Amelia as she returns home from university."
+                            data-expression="default" 
+                            data-category="stories"
+                            data-book-status="complete">
+                            <a href="books/story-amelias-evening/index.html" target="_blank">Read</a>
+                            <img src="books/story-amelias-evening/images/cover.webp" alt="young woman standing at a door wearing a red hoody with her arms crossed">
+                    </div>
+                    <div    class="home-book mascot-object"
+                            data-title="Story Book 2"
+                            data-text="; Coming soon!"
+                            data-expression="default" 
+                            data-category="stories"
+                            data-book-status="progressing">
+                            <a href="books/template/index.html" target="_blank">Read</a>
+                            <img src="books/generic_cover.webp" alt="generic cover image">
+                    </div>
+                    <div    class="home-book mascot-object"
+                            data-title="Story Book 3"
+                            data-text="; Coming soon!"
+                            data-expression="default" 
+                            data-category="stories"
+                            data-book-status="progressing">
+                            <a href="books/template/index.html" target="_blank">Read</a>
+                            <img src="books/generic_cover.webp" alt="generic cover image">
+                    </div>
+                    <div    class="home-book mascot-object"
+                            data-title="Story Book 4"
+                            data-text="; Coming soon!"
+                            data-expression="default" 
+                            data-category="stories"
+                            data-book-status="progressing">
+                            <a href="books/template/index.html" target="_blank">Read</a>
+                            <img src="books/generic_cover.webp" alt="generic cover image">
+                    </div>
+                    <div    class="home-book mascot-object"
+                            data-title="Story Book 5"
+                            data-text="; Coming soon!"
+                            data-expression="default" 
+                            data-category="stories"
+                            data-book-status="progressing">
+                            <a href="books/template/index.html" target="_blank">Read</a>
+                            <img src="books/generic_cover.webp" alt="generic cover image">
+                    </div>
+                    <div    class="home-book mascot-object"
+                            data-title="Kenshi: The Pacifier - Guidance For A Troublemaker"
+                            data-text="; Seeker, take the advice of Yara after she clashes with various authorities of Kenshi, getting herself into a lot of trouble."
+                            data-expression="default"
+                            data-category="kenshi"
+                            data-book-status="complete">
+                            <a href="books/kenshi-pacifier/index.html" target="_blank">Read</a>
+                            <img src="books/kenshi-pacifier/images/cover.webp" alt="a bowl with two greenish-purple colored eggplants on a sky-blue background">
+                    </div>
+                    <div    class="home-book mascot-object"
+                            data-title="Kenshi Book 2"
+                            data-text="; Coming soon!"
+                            data-expression="default" 
+                            data-category="kenshi"
+                            data-book-status="progressing">
+                            <a href="books/template/index.html" target="_blank">Read</a>
+                            <img src="books/generic_cover.webp" alt="generic cover image">
+                    </div>
+                    <div    class="home-book mascot-object"
+                            data-title="Kenshi Book 3"
+                            data-text="; Coming soon!"
+                            data-expression="default" 
+                            data-category="kenshi"
+                            data-book-status="progressing">
+                            <a href="books/template/index.html" target="_blank">Read</a>
+                            <img src="books/generic_cover.webp" alt="generic cover image">
+                    </div>
+                    <div    class="home-book mascot-object"
+                            data-title="Kenshi Book 4"
+                            data-text="; Coming soon!"
+                            data-expression="default" 
+                            data-category="kenshi"
+                            data-book-status="progressing">
+                            <a href="books/template/index.html" target="_blank">Read</a>
+                            <img src="books/generic_cover.webp" alt="generic cover image">
+                    </div>
+                    <div    class="home-book mascot-object"
+                            data-title="Kenshi Book 5"
+                            data-text="; Coming soon!"
+                            data-expression="default" 
+                            data-category="kenshi"
+                            data-book-status="progressing">
+                            <a href="books/template/index.html" target="_blank">Read</a>
+                            <img src="books/generic_cover.webp" alt="generic cover image">
+                    </div>
+                    <div    class="home-book mascot-object"
+                            data-title="Skyrim: The Lusty Argonian Maid - Folio Edition"
+                            data-text="; A curious choice, Seeker. Dive into this play book by Crassius Curio filled with snarky innuendos. A fan-favorite."
+                            data-expression="default"
+                            data-category="elderscrolls"
+                            data-book-status="complete">
+                            <a href="books/elderscrolls-the-lusty-argonian-maid/index.html" target="_blank">Read</a>
+                            <img src="books/elderscrolls-the-lusty-argonian-maid/images/cover.webp" alt="an argonian with green skin and purple scales dressed in a maid outfit">
+                    </div>
+                    <div    class="home-book mascot-object"
+                            data-title="Elderscrolls Book 2"
+                            data-text="; Coming soon!"
+                            data-expression="default" 
+                            data-category="elderscrolls"
+                            data-book-status="progressing">
+                            <a href="books/template/index.html" target="_blank">Read</a>
+                            <img src="books/generic_cover.webp" alt="generic cover image">
+                    </div>
+                    <div    class="home-book mascot-object"
+                            data-title="Elderscrolls Book 3"
+                            data-text="; Coming soon!"
+                            data-expression="default" 
+                            data-category="elderscrolls"
+                            data-book-status="progressing">
+                            <a href="books/template/index.html" target="_blank">Read</a>
+                            <img src="books/generic_cover.webp" alt="generic cover image">
+                    </div>
+                    <div    class="home-book mascot-object"
+                            data-title="Elderscrolls Book 4"
+                            data-text="; Coming soon!"
+                            data-expression="default" 
+                            data-category="elderscrolls"
+                            data-book-status="progressing">
+                            <a href="books/template/index.html" target="_blank">Read</a>
+                            <img src="books/generic_cover.webp" alt="generic cover image">
+                    </div>
+                    <div    class="home-book mascot-object"
+                            data-title="Elderscrolls Book 5"
+                            data-text="; Coming soon!"
+                            data-expression="default" 
+                            data-category="elderscrolls"
+                            data-book-status="progressing">
+                            <a href="books/template/index.html" target="_blank">Read</a>
+                            <img src="books/generic_cover.webp" alt="generic cover image">
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <footer class="mobile-footer">
+        <a  id="mob-patreon"
+            class="mascot-object footer-icon"
+            href="https://www.patreon.com/cw/SableSentinel" target="_blank"
+            aria-label="Patreon"
+            data-expression="default"
+            data-text="Become a True Seeker and gain access to my secret library...">
+        </a>
+        <a  id="mob-youtube"
+            class="mascot-object footer-icon"
+            href="https://www.youtube.com/@SableSentinel" target="_blank"
+            aria-label="YouTube"
+            data-expression="default"
+            data-text="Dive deeper and discover hidden gems of knowledge.">
+        </a>
+        <a  id="mob-reddit"
+            class="mascot-object footer-icon"
+            href="https://www.reddit.com/user/Sable_Sentinel/" target="_blank"
+            aria-label="Reddit"
+            data-expression="default"
+            data-text="Be among the first to discover what new knowledge has been... hoarded.">
+        </a>
+        <a  id="mob-artgram"
+            class="mascot-object footer-icon"
+            href="https://www.artgram.co/sable_sentinel" target="_blank"
+            aria-label="Artgram"
+            data-expression="default"
+            data-text="Enter the great gallery and become immersed in my halls of art.">
+        </a>
+        <a  id="mob-instagram"
+            class="mascot-object footer-icon"
+            href="https://www.instagram.com/sable_sentinel/" target="_blank"
+            aria-label="Instagram"
+            data-expression="default"
+            data-text="Roam around and become lost in my extended art gallery.">
+        </a>
+        <a  id="mob-email"
+            class="mascot-object footer-icon"
+            href="mailto:sablesentinel.social@gmail.com" target="_blank"
+            aria-label="Email"
+            data-expression="default"
+            data-text="Want to contact me, Seeker? Here is your opportunity.">
+        </a>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
