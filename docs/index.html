@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apocrypha | Compendia of Stories</title>
+    <meta name="description" content="Explore and discover books in the vast library of Apocrypha, from elderscrolls to Kenshi and even unique books that are only found in this library.">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/svg" sizes="32x32" href="assets/icons/favicon.svg">
+    <link rel="icon" type="image/svg" sizes="16x16" href="assets/icons/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/favicon.svg">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#1a2e0a">
+
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+
+    <style>
+        #intro-overlay-background{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="intro-overlay" id="intro-overlay" aria-hidden="false">
+    <img id="intro-overlay-background" src="assets/backgrounds/landing_page_apocrypha.webp" width="100%" height="100%" fetchpriority="high" decoding="async" alt="inky black sea with book towers on the left and right">
+        <div class="intro-container">
+            <header class="intro-header">
+                <h1>Welcome to Apocrypha</h1>
+            </header>
+
+            <div class="door-circle-wrapper">
+                <div class="compendia-door mascot-object" data-text="Enter the great library of Apocrypha!">
+                    <div class="door-panel left"></div>
+                    <div class="door-panel right"></div>
+                </div>
+                <div class="circle-icons">
+                    <a id="circle-patreon" class="mascot-object circle-icon" href="https://www.patreon.com/cw/SableSentinel" target="_blank" aria-label="Patreon" data-text="Become a True Seeker and gain access to my secret library."></a>
+                    <a id="circle-youtube" class="mascot-object circle-icon" href="https://www.youtube.com/@SableSentinel" target="_blank" aria-label="YouTube" data-text="Dive deeper and discover hidden gems of knowledge."></a>
+                    <a id="circle-discord" class="mascot-object circle-icon" href="#" aria-label="Discord" data-text="Discord server coming soon..."></a>
+                    <a id="circle-artgram" class="mascot-object circle-icon" href="/books/index.html" target="_blank" aria-label="Artgram" data-text="Enter the great gallery and become immersed in my halls of art."></a>
+                    <a id="circle-instagram" class="mascot-object circle-icon" href="https://www.instagram.com/sable_sentinel/" target="_blank" aria-label="Instagram" data-text="Roam around and become lost in my extended art gallery."></a>
+                    <a id="circle-email" class="mascot-object circle-icon" href="mailto:sablesentinel.social@gmail.com" target="_blank" aria-label="Email" data-text="Want to contact me, Seeker? Here is your opportunity."></a>
+                </div>
+            </div>
+            <button id="skip-intro">Skip &hookrightarrow;</button>
+        </div>
+    </div>
+
+    <main class="browsing-container">
+        <div class="shelf-container">
+            <nav class="home-navigation">
+                <div class="home-logo"></div>
+                <div class="progress-container">
+                    <label class="progress-label" for="collection-progress">Completion (2/15):</label>
+                    <progress id="collection-progress" max="100" value="0" title="collection progress"></progress>
+                </div>
+
+                <footer class="nav-footer">
+                    <a id="nav-patreon" class="mascot-object" href="https://www.patreon.com/cw/SableSentinel" target="_blank" data-text="Become a True Seeker and gain access to my secret library..."></a>
+                    <a id="nav-youtube" class="mascot-object" href="https://www.youtube.com/@SableSentinel" target="_blank" data-text="Dive deeper and discover hidden gems of knowledge."></a>
+                    <a id="nav-discord" class="mascot-object" href="#" data-text="Discord server coming soon..."></a>
+                    <a id="nav-artgram" class="mascot-object" href="/books/index.html" target="_blank" data-text="Enter the great gallery and become immersed in my halls of art."></a>
+                    <a id="nav-instagram" class="mascot-object" href="https://www.instagram.com/sable_sentinel/" target="_blank" data-text="Roam around and become lost in my extended art gallery."></a>
+                    <a id="nav-email" class="mascot-object" href="mailto:sablesentinel.social@gmail.com" target="_blank" data-text="Want to contact me, Seeker? Here is your opportunity."></a>
+                </footer>
+
+                <div id="nav-search">
+                    <label id="home-search">🔍</label>
+                    <input type="text" id="search-input">
+                </div>
+
+                <div id="nav-filter">
+                    <label id="home-filter">📚</label>
+                    <select id="category-filter">
+                        <option value="">All</option>
+                        <option value="elderscrolls">Elderscrolls</option>
+                        <option value="kenshi">Kenshi</option>
+                        <option value="stories">Stories</option>
+                    </select>
+                </div>
+            </nav>
+
+            <section class="home-shelf">
+            <!-- STORIES -->
+                <div class="home-book mascot-object"
+                    data-title="Amelia's Evening"
+                    data-category="stories"
+                    data-book-status="progressing"
+                    data-text="; An excellent choice, Seeker! Become immersed in the life of Amelia as she returns home from university.">
+                    <img src="books/story-amelias-evening/images/cover.webp" alt="light-skinned woman with brown hair standing at in door frame wearing a red hoody with her arms crossed">
+                    <a href="books/story-amelias-evening/index.html" target="_blank">Read</a>
+                </div>
+
+                <div class="home-book mascot-object"
+                    data-title="Mystery Book"
+                    data-text="; this book hides its knowledge from me..."
+                    data-category="stories"
+                    data-book-status="progressing">
+                    <img src="books/generic_cover.webp" alt="generic cover image">
+                    <a href="books/template/index.html" target="_blank">Read</a>
+                </div>
+
+                <div class="home-book mascot-object"
+                    data-title="Mystery Book"
+                    data-text="; this book hides its knowledge from me..."
+                    data-category="stories"
+                    data-book-status="progressing">
+                    <img src="books/generic_cover.webp" alt="generic cover image">
+                    <a href="books/template/index.html" target="_blank">Read</a>
+                </div>
+
+                <div class="home-book mascot-object"
+                    data-title="Mystery Book"
+                    data-text="; this book hides its knowledge from me..."
+                    data-category="stories"
+                    data-book-status="progressing">
+                    <img src="books/generic_cover.webp" alt="generic cover image">
+                    <a href="books/template/index.html" target="_blank">Read</a>
+                </div>
+
+                <div class="home-book mascot-object"
+                    data-title="Mystery Book"
+                    data-text="; this book hides its knowledge from me..."
+                    data-category="stories"
+                    data-book-status="progressing">
+                    <img src="books/generic_cover.webp" alt="generic cover image">
+                    <a href="books/template/index.html" target="_blank">Read</a>
+                </div>
+
+            <!-- KENSHI -->
+                <div class="home-book mascot-object"
+                    data-title="Kenshi: The Pacifier - Guidance For A Troublemaker"
+                    data-category="kenshi"
+                    data-book-status="complete"
+                    data-text="; Seeker, take the advice of Yara after she clashes with various authorities of Kenshi, getting herself into a lot of trouble.">
+                    <img src="books/kenshi-pacifier/images/cover.webp" alt="a bowl with two greenish-purple colored eggplants on a sky-blue background">
+                    <a href="books/kenshi-pacifier/index.html" target="_blank">Read</a>
+                </div>
+
+                <div class="home-book mascot-object"
+                    data-title="Mystery Book"
+                    data-text="; this book hides its knowledge from me..."
+                    data-category="kenshi"
+                    data-book-status="progressing">
+                    <img src="books/generic_cover.webp" alt="generic cover image">
+                    <a href="books/template/index.html" target="_blank">Read</a>
+                </div>
+
+                <div class="home-book mascot-object"
+                    data-title="Mystery Book"
+                    data-text="; this book hides its knowledge from me..."
+                    data-category="kenshi"
+                    data-book-status="progressing">
+                    <img src="books/generic_cover.webp" alt="generic cover image">
+                    <a href="books/template/index.html" target="_blank">Read</a>
+                </div>
+
+                <div class="home-book mascot-object"
+                    data-title="Mystery Book"
+                    data-text="; this book hides its knowledge from me..."
+                    data-category="kenshi"
+                    data-book-status="progressing">
+                    <img src="books/generic_cover.webp" alt="generic cover image">
+                    <a href="books/template/index.html" target="_blank">Read</a>
+                </div>
+
+                <div class="home-book mascot-object"
+                    data-title="Mystery Book"
+                    data-text="; this book hides its knowledge from me..."
+                    data-category="kenshi"
+                    data-book-status="progressing">
+                    <img src="books/generic_cover.webp" alt="generic cover image">
+                    <a href="books/template/index.html" target="_blank">Read</a>
+                </div>
+
+            <!-- ELDERSCROLLS -->
+                <div class="home-book mascot-object"
+                    data-title="Skyrim: The Lusty Argonian Maid I"
+                    data-category="elderscrolls"
+                    data-book-status="complete"
+                    data-text="; A curious choice, Seeker. Dive into this play book by Crassius Curio filled with snarky innuendos. A fan-favorite.">
+                    <img src="books/elderscrolls-the-lusty-argonian-maid-1/images/cover.webp" alt="an argonian with green skin and purple scales dressed in a maid outfit, volume one">
+                    <a href="books/elderscrolls-the-lusty-argonian-maid-1/index.html" target="_blank">Read</a>
+                </div>
+
+                <div class="home-book mascot-object"
+                    data-title="Skyrim: The Lusty Argonian Maid II"
+                    data-category="elderscrolls"
+                    data-book-status="progressing"
+                    data-text="; A curious choice, Seeker. Dive into this play book by Crassius Curio filled with snarky innuendos. A fan-favorite.">
+                    <img src="books/elderscrolls-the-lusty-argonian-maid-2/images/cover.webp" alt="an argonian with green skin and purple scales dressed in a maid outfit, volume two">
+                    <a href="books/elderscrolls-the-lusty-argonian-maid-2/index.html" target="_blank">Read</a>
+                </div>
+
+                <div class="home-book mascot-object"
+                    data-title="Mystery Book"
+                    data-text="; this book hides its knowledge from me..."
+                    data-category="elderscrolls"
+                    data-book-status="progressing">
+                    <img src="books/generic_cover.webp" alt="generic cover image">
+                    <a href="books/template/index.html" target="_blank">Read</a>
+                </div>
+
+                <div class="home-book mascot-object"
+                    data-title="Mystery Book"
+                    data-text="; this book hides its knowledge from me..."
+                    data-category="elderscrolls"
+                    data-book-status="progressing">
+                    <img src="books/generic_cover.webp" alt="generic cover image">
+                    <a href="books/template/index.html" target="_blank">Read</a>
+                </div>
+
+                <div class="home-book mascot-object"
+                    data-title="Mystery Book"
+                    data-text="; this book hides its knowledge from me..."
+                    data-category="elderscrolls"
+                    data-book-status="progressing">
+                    <img src="books/generic_cover.webp" alt="generic cover image">
+                    <a href="books/template/index.html" target="_blank">Read</a>
+                </div>
+            </section>
+        </div>
+    </main>
+    <div class="mascot">
+        <div class="mascot-bubble">
+            <span class="mascot-text"></span>
+        </div>
+        <img class="mascot-image" src="mora.webp" alt="Herma-Mora">
+    </div>
+<script src="main.js"></script>
+</body>
+</html>

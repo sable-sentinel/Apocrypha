@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apocrypha | Gallery</title>
+    <meta name="description" content="Explore and discover books in the vast library of Apocrypha, from elderscrolls to Kenshi and even unique books that are only found in this library.">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/svg" sizes="32x32" href="../assets/icons/favicon.svg">
+    <link rel="icon" type="image/svg" sizes="16x16" href="../assets/icons/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/favicon.svg">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#1a2e0a">
+
+    <link rel="stylesheet" href="../main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Cantarell", sans-serif;
+            color: chartreuse;
+            overflow-y: auto;
+            background: none;
+        }
+        .wrapper{
+            min-height: 100vh;
+            background-image: linear-gradient(to top, black, rgb(55, 75, 25));
+            background-repeat: no-repeat;
+        }
+        .gallery-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.75);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid darkgreen;
+            flex-wrap: wrap;
+            background-image: url(../assets/backgrounds/catalog_navigation.webp);
+            background-size: contain;
+        }
+
+        .gallery-header h1 {
+            font-family: "Cantarell", sans-serif;
+            font-size: 2rem;
+            margin: 0;
+            margin-right: 2rem;
+            color: green;
+        }
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .back-btn {
+            display: none;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid chartreuse;
+            color: chartreuse;
+            padding: 0.5rem 1.2rem;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: rgba(85,107,47,0.8);
+        }
+
+        .toggle-btn {
+            margin-bottom: 1rem;
+            background: rgb(100, 120, 75);
+            border: 1px solid chartreuse;
+            color: chartreuse;
+            padding: 0.5rem 1.2rem;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .toggle-btn.active {
+            background: lightgreen;
+            box-shadow: 0 0 10px chartreuse;
+            color: black;
+        }
+
+        .album-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .album-card {
+            border-radius: 0.5rem;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid darkgreen;
+            background: rgba(0,0,0,0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: center;
+        }
+
+        .album-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 15px chartreuse, 0 0 30px green;
+            border-color: chartreuse;
+        }
+
+        .album-card img {
+            width: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .album-card .album-name {
+            height: 100%;
+            padding: 0.8rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            background: rgba(0,0,0,0.6);
+        }
+        .album-detail-container {
+            display: none;
+            padding: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .album-detail-container.active {
+            display: block;
+        }
+
+        .album-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .album-detail-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: filter 0.3s, transform 0.2s;
+            border: 1px solid darkgreen;
+        }
+
+        .album-detail-grid img:hover {
+            transform: scale(1.02);
+            border-color: chartreuse;
+        }
+
+        img.nsfw {
+            filter: blur(8px);
+        }
+
+        body.blur-off img.nsfw {
+            filter: none;
+        }
+
+        /* ===== Slideshow Modal ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 3rem;
+            color: chartreuse;
+            cursor: pointer;
+            z-index: 10;
+            transition: transform 0.2s;
+        }
+
+        .modal-close:hover {
+            transform: scale(1.2);
+        }
+
+        .modal-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 90%;
+            max-height: 85vh;
+            position: relative;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border: 2px solid darkgreen;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: chartreuse;
+            border: 1px solid chartreuse;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+            padding-bottom: 0.55rem;
+            font-size: 2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 5;
+        }
+
+        .nav-arrow:hover {
+            background: rgba(85, 107, 47, 0.8);
+            box-shadow: 0 0 15px chartreuse;
+        }
+
+        .prev-arrow {
+            left: 10px;
+        }
+
+        .next-arrow {
+            right: 10px;
+        }
+
+        .image-counter {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: chartreuse;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-header {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .gallery-header footer{
+                display: none;
+            }
+            .album-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 1rem;
+                padding: 1rem;
+            }
+            .album-detail-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            .album-detail-grid img {
+                height: 180px;
+            }
+            .nav-arrow {
+                width: 2.2rem;
+                height: 2.2rem;
+                font-size: 1.5rem;
+                padding-bottom: 0.35rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-header footer{
+                display: none;
+            }
+            .album-grid {
+                grid-template-columns: 1fr;
+            }
+            .album-detail-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="wrapper">
+        <header class="gallery-header">
+            <h1 id="gallery-title">The Gallery</h1>
+
+            <footer class="nav-footer">
+                <a id="nav-patreon" class="mascot-object" href="https://www.patreon.com/cw/SableSentinel" target="_blank" data-text="Become a True Seeker and gain access to my secret library..."></a>
+                <a id="nav-youtube" class="mascot-object" href="https://www.youtube.com/@SableSentinel" target="_blank" data-text="Dive deeper and discover hidden gems of knowledge."></a>
+                <a id="nav-discord" class="mascot-object" href="#" data-text="Discord server coming soon..."></a>
+                <a id="nav-instagram" class="mascot-object" href="https://www.instagram.com/sable_sentinel/" target="_blank" data-text="Roam around and become lost in my extended art gallery."></a>
+                <a id="nav-email" class="mascot-object" href="mailto:sablesentinel.social@gmail.com" target="_blank" data-text="Want to contact me, Seeker? Here is your opportunity."></a>
+            </footer>
+
+            <div class="header-controls">
+                <button class="back-btn" id="back-to-albums">&larr; Back to Albums</button>
+            </div>
+        </header>
+
+        <div id="album-overview" class="album-overview">
+            <div class="album-grid">
+                <!-- Album: Portfolio -->
+                <div class="album-card" data-album="portfolio">
+                    <img src="generic_cover.webp" alt="generic cover image" loading="lazy">
+                    <div class="album-name">Portfolio</div>
+                </div>
+                <!-- Album: Kenshi Pacifier -->
+                <div class="album-card" data-album="kenshi-pacifier">
+                    <img src="kenshi-pacifier/images/cover.webp" alt="a bowl with two greenish-purple colored eggplants on a sky-blue background" loading="lazy">
+                    <div class="album-name">Kenshi - The Pacifier</div>
+                </div>
+                <!-- Album: Lusty Argonian Maid -->
+                <div class="album-card" data-album="lusty-argonian-maid-I">
+                    <img src="elderscrolls-the-lusty-argonian-maid-1/images/cover.webp" alt="an argonian with green skin and purple scales dressed in a maid outfit" loading="lazy">
+                    <div class="album-name"> The Lusty Argonian Maid I</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add class="nsfw" to add blur -->
+        <div id="portfolio-detail" class="album-detail-container">
+            <div class="album-detail-grid">
+                <img src="art-gallery/1_mage-in-the-forest.webp" alt="a mage in a forest dodging arrows">
+                <img src="art-gallery/2_elf-under-moonlight.webp" alt="an elf sitting under a moonlit forest">
+                <img src="art-gallery/3_knight-laying-on-ground.webp" alt="a male knight and a female vampire laying on ground cuddling">
+                <img src="art-gallery/4_girl-sitting-under-a-tree.webp" alt="a girl dressed in a purple blouse and black skirt sitting under a tree">
+                <img src="art-gallery/5_waterfall-over-stream.webp" alt="a beautiful waterfall pouring into a stream">
+                <img src="art-gallery/6_woman-in-cute.webp" alt="a woman in a cute blouse and checkered skirt">
+                <img src="art-gallery/7_portrait-of-woman.webp" alt="portrait of a woman with light skin and brown hair with an orange rim light">
+                <img src="art-gallery/8_portrait-of-woman.webp" alt="portrait of a woman with brown skin standing in a sun lit room">
+                <img src="art-gallery/9_portrait-of-woman.webp" alt="portrait of a woman with dark brown skin wearing a white shirt and smiling">
+                <img src="art-gallery/10_portrait-of-woman.webp" alt="portrait of a woman with light skin and dark hair at a beach">
+                <img src="art-gallery/11_african-man-as-a-ghost.webp" alt="a man drawn as a casper ghost with dark brown skin and wearing a red shirt with the label ghost man">
+                <img src="art-gallery/12_girl-with-sad-expression.webp" alt="a light skinned girl wearing a red hoody with her arms folded and a sad expression">
+                <img src="art-gallery/13_black-and-white-portrait.webp" alt="a black and white portrait of a woman">
+                <img src="art-gallery/14_black-and-white-drawing.webp" alt="a black and white drawing of a woman looking into the forest from a bridge">
+                <img src="art-gallery/15_mexican-woman-wearing-a-hat.webp" alt="a mexican woman wearing a large hat and a blue smart shirt">
+                <img src="art-gallery/16_girl-wearing-a-blue-hoodie.webp" alt="a girl wearing a blue hoody with her arms in her pockets">
+                <img src="art-gallery/17_girl-wearing-a-jean-jacket.webp" alt="a girl wearing a short jean jacket and a red hoody underneath">
+                <img src="art-gallery/18_african-woman-wearing-an-apron.webp" alt="a dark skinned african woman wearing a leather apron with her hand in the apron's pouch">
+                <img src="art-gallery/19_mediterrainian-woman-wearing-shawl.webp" alt="a mediterrainian woman wearing colorful shawl and black skirt">
+                <img src="art-gallery/20_jesus-looking-up.webp" alt="a portrait of jesus looking upwards with a light shining down on his face the verse john 3 verse 18 is referenced">
+            </div>
+        </div>
+
+        <div id="kenshi-pacifier-detail" class="album-detail-container">
+            <div class="album-detail-grid">
+                <img src="kenshi-pacifier/images/page_1.webp" alt="a scenic sunset landscape with a large building covering the horizon">
+                <img src="kenshi-pacifier/images/page_2.webp" alt="a bowl of food spills onto large angry man in a coat">
+                <img src="kenshi-pacifier/images/page_3.webp" alt="a young woman pointing towards something with an angry man looking at her">
+                <img src="kenshi-pacifier/images/page_4.webp" alt="a young woman running away from a group of soldiers before tearing her shirt on a statue" class="nsfw">
+                <img src="kenshi-pacifier/images/page_5.webp" alt="a raised fist with its middle finger up">
+                <img src="kenshi-pacifier/images/page_6.webp" alt="a young woman sitting in a metal prison cage">
+                <img src="kenshi-pacifier/images/page_7.webp" alt="an armoured knight and an armoured samurai facing each other with faction emblems">
+                <img src="kenshi-pacifier/images/page_8.webp" alt="a wide landscape scene inside a bar with a woman standing at the door frame">
+                <img src="kenshi-pacifier/images/page_9.webp" alt="a hand holding a piece of paper with a list of locations">
+            </div>
+        </div>
+
+        <div id="lusty-argonian-maid-I-detail" class="album-detail-container">
+            <div class="album-detail-grid">
+                <img src="elderscrolls-the-lusty-argonian-maid-1/images/page_1.webp" alt="an argonian with pink scales dressed in a maid outfit and holding a mop in a bucket">
+                <img src="elderscrolls-the-lusty-argonian-maid-1/images/page_2.webp" alt="an argonian with pink scales dressed in a maid outfit wiping a table with a cloth">
+                <img src="elderscrolls-the-lusty-argonian-maid-1/images/page_3.webp" alt="a close shot of a man's eyes and mouth as he smiles briefly">
+                <img src="elderscrolls-the-lusty-argonian-maid-1/images/page_4.webp" alt="a waist-down shot showing the tail and legs of an argonian with pink scales dressed in a maid outfit">
+                <img src="elderscrolls-the-lusty-argonian-maid-1/images/page_5.webp" alt="a side shot of a man with a short beard smiling">
+                <img src="elderscrolls-the-lusty-argonian-maid-1/images/page_6.webp" alt="a head shot of an argonian with pink scales dressed in a maid outfit">
+                <img src="elderscrolls-the-lusty-argonian-maid-1/images/page_7.webp" alt="a wide shot of a man sitting in a chair with a figure wiping a table in the distance">
+                <img src="elderscrolls-the-lusty-argonian-maid-1/images/page_8.webp" alt="a spear emerges quickly from a point and shakes briefly">
+                <img src="elderscrolls-the-lusty-argonian-maid-1/images/page_9.webp" alt="a spear moving up and down in the air in a waving motion">
+            </div>
+        </div>
+
+        <!-- Slideshow Modal -->
+        <div class="modal" id="slideshow-modal">
+            <button id="nsfw-toggle" class="toggle-btn" title="Toggle mature content blur">🔞 Reveal</button>
+            <span class="modal-close" id="modal-close">&times;</span>
+            <div class="modal-content">
+                <button class="nav-arrow prev-arrow" id="prev-btn">&#10094;</button>
+                <img src="" alt="Gallery image" id="modal-image">
+                <button class="nav-arrow next-arrow" id="next-btn">&#10095;</button>
+                <div class="image-counter" id="image-counter"></div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        $(document).ready(function() {
+            // Current album name and image array for slideshow
+            let currentAlbum = null;
+            let currentImages = [];
+            let currentIndex = 0;
+
+            // ========== ALBUM NAVIGATION ==========
+            $('.album-card').on('click', function() {
+                const album = $(this).data('album');
+                showAlbumDetail(album);
+            });
+
+            $('#back-to-albums').on('click', function() {
+                showAlbumOverview();
+            });
+
+            function showAlbumDetail(album) {
+                currentAlbum = album;
+                // Hide overview
+                $('#album-overview').hide();
+                // Hide all detail containers
+                $('.album-detail-container').removeClass('active').hide();
+                // Show the selected one
+                const $detail = $('#' + album + '-detail');
+                if ($detail.length) {
+                    $detail.addClass('active').show();
+                }
+                // Update header
+                //$('#gallery-title').text(album.replace(/(\d)/, ' $1')); // "Album1" -> "Album 1"
+                $('.back-btn').show();
+                // Build image array for slideshow (all img inside this container)
+                currentImages = $detail.find('img').map(function() { return this; }).get();
+                currentIndex = 0;
+            }
+
+            function showAlbumOverview() {
+                currentAlbum = null;
+                $('#album-overview').show();
+                $('.album-detail-container').removeClass('active').hide();
+                $('#gallery-title').text('The Gallery');
+                $('.back-btn').hide();
+                currentImages = [];
+            }
+
+            // ========== NSFW TOGGLE ==========
+            const $nsfwBtn = $('#nsfw-toggle');
+            $nsfwBtn.on('click', function() {
+                $('body').toggleClass('blur-off');
+                $(this).toggleClass('active');
+                if ($('body').hasClass('blur-off')) {
+                    $(this).text('🔞 Hide');
+                } else {
+                    $(this).text('🔞 Reveal');
+                }
+            });
+
+            // ========== SLIDESHOW MODAL ==========
+            const $modal = $('#slideshow-modal');
+            const $modalImg = $('#modal-image');
+            const $close = $('#modal-close');
+            const $prev = $('#prev-btn');
+            const $next = $('#next-btn');
+            const $counter = $('#image-counter');
+
+            function openModal(index) {
+                if (!currentImages.length) return;
+                currentIndex = index;
+                updateModalImage();
+                $modal.addClass('active');
+                $('body').css('overflow', 'hidden');
+            }
+
+            function closeModal() {
+                $modal.removeClass('active');
+                $('body').css('overflow', '');
+                if ($('body').hasClass('blur-off')) {
+                    $('body').toggleClass('blur-off');
+                    $(this).toggleClass('active');
+                }
+            }
+
+            function updateModalImage() {
+                const img = currentImages[currentIndex];
+                $modalImg.attr('src', img.src);
+                $modalImg.attr('alt', img.alt);
+                // Transfer nsfw class (for blur if global blur is active)
+                $modalImg.toggleClass('nsfw', $(img).hasClass('nsfw'));
+                $counter.text(`${currentIndex + 1} / ${currentImages.length}`);
+            }
+
+            function showNext() {
+                if (!currentImages.length) return;
+                currentIndex = (currentIndex + 1) % currentImages.length;
+                updateModalImage();
+            }
+
+            function showPrev() {
+                if (!currentImages.length) return;
+                currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+                updateModalImage();
+            }
+
+            // Click on any image inside an album detail opens modal
+            $(document).on('click', '.album-detail-container img', function() {
+                if (!currentImages.length) return;
+                // Find index of this image in the current array
+                const idx = currentImages.indexOf(this);
+                if (idx !== -1) {
+                    openModal(idx);
+                }
+            });
+
+            // Modal navigation
+            $close.on('click', closeModal);
+            $next.on('click', showNext);
+            $prev.on('click', showPrev);
+
+            // Keyboard
+            $(document).on('keydown', function(e) {
+                if (!$modal.hasClass('active')) return;
+                if (e.key === 'ArrowRight') showNext();
+                else if (e.key === 'ArrowLeft') showPrev();
+                else if (e.key === 'Escape') closeModal();
+            });
+
+            // Touch swipe on modal
+            let touchStartX = 0;
+            $modal.on('touchstart', function(e) {
+                touchStartX = e.originalEvent.touches[0].clientX;
+            });
+            $modal.on('touchend', function(e) {
+                const touchEndX = e.originalEvent.changedTouches[0].clientX;
+                const diff = touchEndX - touchStartX;
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) showPrev();
+                    else showNext();
+                }
+            });
+
+            // Click outside modal image closes
+            $modal.on('click', function(e) {
+                if (e.target === this) closeModal();
+            });
+        });
+    </script>
+</body>
+</html>
